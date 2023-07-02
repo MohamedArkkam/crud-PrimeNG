@@ -18,7 +18,7 @@ export class AddEditComponent implements OnInit, OnChanges {
 
  productForm = this.fb.group({
   title: ["", Validators.required],
-  price: [0,Validators.required],
+  price: ["",Validators.required],
   description: [""],
   category: ["", Validators.required],
   image:["", Validators.required]

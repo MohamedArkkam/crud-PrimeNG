@@ -8,15 +8,27 @@ header="{{modelType}} Product"
 (onHide)="closeModal()"
 >
     <form [formGroup]="productForm" class="product-form" >
-    <div class="field">
+        <div class="field">
+            <label class="block" for="title">Product Name</label>
+            <input type="text" pInputText id="title" formControlName="title" class="block"/>
+            <small
+              class="p-error block"
+              *ngIf="
+                productForm.controls['title'].invalid &&
+                productForm.controls['title'].dirty
+              "
+              >Field is required</small
+            >
+        </div>
+    <!-- <div class="field">
         <label class="block" for="title" >Title</label>
-        <input type="text" pInputText id="title" formControlName="title"/>
+        <input type="text" pInputText id="title" formControlName="title" class="block"/>
         <small class="p-error block" 
         *ngIf="productForm.controls['title'].invalid && productForm.controls['title'].dirty">Required</small>
-    </div>
+    </div> -->
     <div class="field">
         <label class="block" for="price"  >Price</label>
-        <p-inputNumber id="price" formControlName="price"></p-inputNumber>
+        <p-inputNumber id="price" formControlName="price" class="block"></p-inputNumber>
         <small class="p-error block" 
         *ngIf="productForm.controls['price'].invalid && productForm.controls['price'].dirty">Required</small>
     </div>
